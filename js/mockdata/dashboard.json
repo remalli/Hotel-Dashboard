@@ -1,0 +1,54 @@
+//Mock Json
+{
+  "hotelId": "QWEXTY122",
+  "hotelInfo": {
+    "name": "Avasa",
+    "hotel_address": "madhapur,hyderabad,500084",
+    "latitude": 32.86082,
+    "longitude": -96.8893,
+    "type": "5 "
+  },
+  "roomsInfo": {
+    "numberOfRooms": 500,
+	"months":["7AM-8AM","8AM-9AM","9AM-10AM","10AM-11Am","12Am-1PM"],
+	"data":[18,29,19,10,1],
+    "roomTypeId": "R7890",
+    "description": "AC "
+  },
+  "revenue": {
+    "revenueId": "R892002",
+    "revenueTotal": "2000",
+    "revenueCurrentPerMonth": 45,
+    "revenueCurrentYear": 800,
+     "months":["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"],
+	 "data":[60,40,70,35,33,60,60,40,70,35,33,60]
+	},
+  "ratings": {
+    "ratingId": "rt88383",
+    "critcsRating": 4,
+ "months":["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"],
+	 "data":[2,1,4,5,6,7,8,9,9,9,9,9]  },
+  "customers": {
+    "totalCusomers": 500000,
+	 "months":["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"],
+	 "data":[2,1,4,5,6,7,8,9,9,9,9,9] ,
+    "recentCustomers": [
+      {
+        "name": "johnson",
+        "feedback": "goodquality",
+		"checkIn":"02-07-2017",
+		"checkOut":"02-07-2017",
+		"address":"madhapur,hyderabad",
+		avatar: '1.jpg',
+      },
+      {
+        "name": "David",
+        "feedback": "goodquality",
+		"checkIn":"03-07-2017",
+		"checkOut":"04-07-2017",
+		"address":"jublihils,hyderabad",
+		avatar: '2.jpg',
+      }
+    ]
+  }
+}
