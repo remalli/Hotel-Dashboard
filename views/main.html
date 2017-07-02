@@ -1,0 +1,184 @@
+<div class="animated fadeIn" ng-controller="dashBoardCtrl as dashbrdctrl">
+
+    <div class="row">
+        <div class="col-sm-6 col-lg-3 ">
+            <div class="card card-inverse card-primary" >
+                <div class="card-block pb-0">
+                    <h4 class="mb-0" ng-bind="dashbrdctrl.dashBoardObj.revenue.revenueTotal"></h4>
+                    <p>Revenue</p>
+                </div>
+                <div class="chart-wrapper px-3" style="height:70px;">
+                    <canvas class="chart chart-bar" chart-data="dashbrdctrl.dashBoardObj.revenue.data" chart-labels="labels" chart-legend="false" chart-series="series" chart-options="options" chart-colors="colors" height="70"></canvas>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card card-inverse card-info" >
+                <div class="card-block pb-0">
+                    <h4 class="mb-0" ng-bind="dashbrdctrl.dashBoardObj.roomsInfo.numberOfRooms"></h4>
+                    <p>Rooms</p>
+                </div>
+                <div class="chart-wrapper px-3" style="height:70px;">
+                    <canvas class="chart chart-line" chart-data="dashbrdctrl.dashBoardObj.roomsInfo.data" chart-labels="dashbrdctrl.dashBoardObj.roomsInfo.months" chart-legend="false" chart-series="series" chart-options="roomOptions" chart-colors="colors" height="70"></canvas>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card card-inverse card-warning" >
+                <div class="card-block pb-0">
+
+                    <h4 class="mb-0">9.823</h4>
+                    <p>Ratings</p>
+                </div>
+                <div class="chart-wrapper" style="height:70px;">
+                    <canvas class="chart chart-doughnut" chart-data="dashbrdctrl.dashBoardObj.ratings.data" chart-labels="dashbrdctrl.dashBoardObj.ratings.months" chart-legend="false" chart-series="series" chart-colors="colors" height="70"></canvas>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card card-inverse card-danger" >
+                <div class="card-block pb-0">
+
+                    <h4 class="mb-0" ng-bind="dashbrdctrl.dashBoardObj.customers.totalCusomers"></h4>
+                    <p>Total Customers</p>
+                </div>
+                <div class="chart-wrapper px-3" style="height:70px;">
+                    <canvas class="chart chart-line" chart-data="dashbrdctrl.dashBoardObj.customers.data" chart-labels="dashbrdctrl.dashBoardObj.customers.months" chart-options="custmerOptions" chart-colors="colors" height="70"></canvas>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+    <div class="card" >
+        <div class="card-block">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h4 class="card-title mb-0">Revenue Analysis</h4>
+                    <div class="small text-muted">By Month</div>
+                </div>
+                <!--/.col-->
+                <div class="col-sm-3">
+                    <input type="radio"  ng-model="revenue.chartType" value="line">Line
+                    <input type="radio" ng-model="revenue.chartType" value="bar">Bar
+                    <input type="radio" ng-model="revenue.chartType" value="doughnut">Doughnut
+
+                </div>
+                <div class="col-sm-4 hidden-sm-down">
+
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+            <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+                <canvas id="chartLine" class="chart chart-line" ng-show="revenue.chartType =='line'"
+                        chart-data="dashbrdctrl.dashBoardObj.revenue.data" chart-labels="dashbrdctrl.dashBoardObj.revenue.months" height="300">
+                </canvas>
+
+                <canvas id="doughnut" class="chart chart-bar" ng-show="revenue.chartType === 'bar'"
+                        chart-data="dashbrdctrl.dashBoardObj.revenue.data" chart-labels="dashbrdctrl.dashBoardObj.revenue.months" height="300">
+                </canvas>
+                <canvas id="doughnut" class="chart chart-doughnut" ng-show="revenue.chartType === 'doughnut'"
+                        chart-data="dashbrdctrl.dashBoardObj.revenue.data" chart-labels="dashbrdctrl.dashBoardObj.revenue.months" height="300">
+                </canvas>
+
+
+                <!--<canvas class="chart chart-pie" chart-data="data" chart-labels="labels" chart-legend="false" chart-series="series" chart-click="onClick" chart-options="options" chart-colors="colors" height="300"></canvas>
+           -->
+            </div>
+        </div>
+        <div class="card-footer">
+            <ul>
+                <li>
+                    <div class="text-muted">Avg Revenue per day</div>
+                    <strong >{{dashbrdctrl.dashBoardObj.revenue.revenueTotal}}M(40%)</strong>
+                    <div class="progress progress-xs mt-2">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </li>
+                <li class="hidden-sm-down">
+                    <div class="text-muted">Avg Revenue per month</div>
+                    <strong>24.093 M (20%)</strong>
+                    <div class="progress progress-xs mt-2">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-muted">Total Revenue</div>
+                    <strong>500M </strong>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <br/>
+    <table class="table table-hover table-outline mb-0 hidden-sm-down">
+        <thead class="thead-default">
+        <tr>
+            <th class="text-center"><i class="icon-people"></i>
+            </th>
+            <th>User</th>
+            <th class="text-center">Address</th>
+            <th>Feedback</th>
+            <th class="text-center">Check In</th>
+            <th>Check Out</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr ng-repeat="user in dashbrdctrl.dashBoardObj.customers.recentCustomers">
+            <td class="text-center">
+                <div class="avatar">
+                    <img ng-src="img/avatars/{{ user.avatar }}" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                        <span class="avatar-status" ng-class="{ 'badge-success' : user.status == 'active',
+                    'badge-warning' : user.status == 'away',
+                    'badge-danger'  : user.status == 'busy',
+                    'badge-default' : user.status == 'offline' }"></span>
+                </div>
+            </td>
+            <td>
+                <div>{{ user.name }}</div>
+
+            </td>
+            <td class="text-center">
+                <div>{{ user.address }}</div>
+
+            </td>
+            <td>
+                <div class="clearfix">
+                    <div class="float-left">
+                        <strong>{{ user.feedback }}</strong>
+                    </div>
+
+                </div>
+
+            </td>
+            <td class="text-center">
+                <div class="small text-muted">Last login</div>
+
+                {{user.checkIn}}
+
+            </td>
+            <td>
+                <div class="small text-muted">Last logOut</div>
+                <strong>{{ user.checkOut }}</strong>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+<!--/.col-->
+</div>
+<!--/.row-->
+
+</div>

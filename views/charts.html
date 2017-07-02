@@ -1,0 +1,133 @@
+<div class="animated fadeIn" ng-controller="revenueCtrl" >
+    <div class="card">
+        <div class="card-block">
+            <div class="row ">
+                <div class="col-sm-5">
+                    <h4 class="card-title mb-0">Revenue Analysis</h4>
+                </div>
+                <!--/.col-->
+                <div class="col-sm-7 hidden-sm-down">
+                    <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="d-md-down-none">Last 1 Month</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Last 2 Month</a>
+                            <a class="dropdown-item" href="#">Last 3 Month</a>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--/.col-->
+            </div></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-6 col-md-3 offset-md-4">
+                    <div class="card">
+                        <canvas id="doughnut" class="chart chart-doughnut" chart-data="revenuedata" chart-options="revenueOptions" chart-labels="revenueLocations">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-block">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h4 class="card-title mb-0">Statistics</h4>
+                </div>
+                <!--/.col-->
+                <div class="col-sm-7 hidden-sm-down">
+                    <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
+                        <button type="button" ng-click="statisticsUpdate('week')" class="btn">Week</button>
+                        <button type="button" ng-click="statisticsUpdate('month')" class="btn">Month</button>
+                        <button type="button" ng-click="statisticsUpdate('year')" class="btn">Year</button>
+                        <!--<div class="btn-group mr-3"  aria-label="First group">
+<label class="btn btn-outline-secondary active">
+<input type="radio" name="options" id="week" ng-model="statBy" value="week" ng-click="statisticsUpdate()">Week
+</label>
+<label class="btn btn-outline-secondary">
+<input type="radio" name="options" id="Month"  ng-model="statBy" value="month" ng-click="statisticsUpdate()" >Month
+</label>
+<label class="btn btn-outline-secondary">
+<input type="radio" name="options" id="year"  ng-model="statBy" value="year" ng-click="statisticsUpdate()">Year
+</label>
+</div>-->
+                    </div>
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+            <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+                <canvas class="chart chart-line" chart-data="statisticsData" chart-labels="statisticslables" chart-legend="false" chart-series="statisticsSeries" chart-click="onClick" chart-options="statisticsOptions" chart-colors="statisticsColors" height="300"></canvas>
+            </div>
+        </div>
+        <div class="card-footer white-footer">
+            <ul>
+                <li>
+                    <strong>{{revenu.orders}}</strong>
+                    <div class="text-muted">Orders</div>
+
+                </li>
+                <li class="hidden-sm-down">
+                    <strong>{{revenu.newCustomer}}</strong>
+                    <div class="text-muted">New Customers</div>
+
+                </li>
+                <li>
+                    <strong>{{revenu.items}}</strong>
+                    <div class="text-muted">Items</div>
+
+                </li>
+                <li class="hidden-sm-down">
+                    <strong>{{revenu.repetedCustomers}}</strong>
+                    <div class="text-muted">Repeated Customers </div>
+
+                </li>
+
+            </ul>
+        </div>
+    </div> 
+
+    <div class="card">
+        <div class="card-block">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h4 class="card-title mb-0">Last week</h4>
+                </div>
+            </div>
+            <!--/.row-->
+            <div class="chart-wrapper"  style="height:300px;margin-top:40px;">
+                <canvas class="chart chart-line" chart-data="lastWeekData" chart-labels="lastWeekLabels" chart-legend="false" chart-series="lastWeekSeries" chart-click="onClick" chart-options="lastWeekOptions" chart-colors="lastWeekColors" height="300"></canvas>
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="card">
+        <div class="card-block">
+            <div class="row ">
+                <div class="col-sm-5">
+                    <h4 class="card-title mb-0">Revenue by week</h4>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-sm-6 col-md-3 offset-md-4">
+                        <div class="card" >
+                            <canvas id="pie" class="chart chart-pie" chart-data="byWeekData" chart-options="byWeekOptions" chart-labels="byWeekLabels">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

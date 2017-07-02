@@ -1,0 +1,202 @@
+
+<div ng-controller="custController">
+    <h1>Up Coming Customers</h1>
+ <!--   <h4>{{todos.length}} total</h4>-->
+    
+  
+     <div>
+         <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bulk Data
+         <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+         <li><a href="#">Name</a></li>
+         <li><a href="#">CHECK IN</a></li>
+         <li><a href="#">CHECK Out</a></li>
+    </ul>
+        </div>
+    </div>
+        
+    <div class="col-xs-4">
+                <input type="text" style="width: 160px;margin: -35px 82%;margin-bottom: 10px;" class="form-control input-sm search-query" placeholder="Search">
+     </div>
+    
+    
+         
+    
+    <table >
+    <tr>
+    <th>NAME</th>
+    <th>BOOKING INFO</th>
+    <th>CHECK IN</th>
+    <th>STATUS</th>
+    <th>ACTION</th>
+  </tr>
+  
+   
+
+        
+  
+  <tr ng-repeat="custscreen in filteredTodos">
+   
+    <td><img src={{custscreen.userpic}} class="round" >{{ custscreen.name }}</td>
+    <td>{{custscreen.checkin}}</td>
+     <td>{{ custscreen.checkout }}</td>
+     <td ng-if="custscreen.status == 'Waiting'">
+
+         
+         <input id="btntest" type="button" value="Done" 
+       onclick="return btntest_onclick()" style="width: 50%"; class="btn btn-info" ng-click="newpage()" />
+
+         
+         
+      </td>
+    <td ng-if="custscreen.status == 'checkedOut'">
+        <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()">checkedOut</button>
+      
+      
+      <td ng-if="custscreen.status == 'CheckIn'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()">Check In</button>
+      </td>
+      
+      <td ng-if="custscreen.status == 'In Progress'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()">In Progress</button>
+      </td>
+      
+      <td ng-if="custscreen.status == 'Pending'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()"> Pending</button>
+      </td>
+      
+      <td ng-if="custscreen.status == 'Removed'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()"> Removed</button>
+      </td>
+      
+      <td ng-if="custscreen.status == 'waiting'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()"> waiting</button>
+      </td>
+      
+      <td ng-if="custscreen.status == 'Check In'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()"> Check In</button>
+      </td>
+      
+      <td ng-if="custscreen.status == 'Reject'">
+            <button type="button" style="width: 50%"; class="btn btn-info" ng-click="newpage()"> Reject</button>
+      </td>
+
+
+      <td> <i class="fa fa-check-circle-o" aria-hidden="true"></i> <i class="fa fa-trash-o" aria-hidden="true"></i> </td>
+    
+    
+  </tr>
+  </table>
+        
+        
+        
+        <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">4</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+        <br><br><br>
+        
+        <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Latest Check In Details
+                </div>
+                <div class="card-block">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Date registered</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sudheer</td>
+                                <td>2017/03/05</td>
+                                <td>Member</td>
+                                <td>
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Chandra kanth</td>
+                                <td>2017/02/04</td>
+                                <td>Staff</td>
+                                <td>
+                                    <span class="badge badge-danger">Banned</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sudarshan</td>
+                                <td>2017/01/12</td>
+                                <td>Admin</td>
+                                <td>
+                                    <span class="badge badge-default">Inactive</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ram mohan</td>
+                                <td>2016/012/01</td>
+                                <td>Member</td>
+                                <td>
+                                    <span class="badge badge-warning">Pending</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Peter John</td>
+                                <td>2016/11/21</td>
+                                <td>Staff</td>
+                                <td>
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">4</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+            <div class="container">
+                <h1>Rommy Graph</h1>
+                <div id="RChart">
+                
+                </div>
+            </div>
+                     
+         <script>
+function btntest_onclick() 
+{
+    window.location.href = "http://localhost:3000/#!/login";
+}
+</script>
